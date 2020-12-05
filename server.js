@@ -35,5 +35,6 @@ app.post('/add', function (request, response) {
         userResponse: request.body.userResponse,
     };
 
-        projectData.push(newEntry);
+    /*projectData.send(newEntry);*/
+    projectData = newEntry;
 });

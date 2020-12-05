@@ -29,11 +29,37 @@ app.get('/all', function (request, response) {
 
 // POST route adds data to ProjectData
 app.post('/add', function (request, response) {
-    newEntry = {
+    const newEntry = {
         temperature: request.body.temperature,
-        date: request.body.date,
-        userResponse: request.body.userResponse
+        dates: request.body.dates,
+        userResponse: request.body.userResponse,
     };
 
     projectData.unshift(newEntry);
 });
+ /* here 
+// GET route
+app.get('/all', sendData);
+function sendData (request, response) {
+  response.send(projectData);
+};
+
+// POST route
+app.post('/add', callBack);
+function callBack(req,res){
+    const data = req.body 
+    newData = {
+    temperature: data.temperature,
+    date: data.date,
+    userResponse: data.userResponse, }
+    Object.assign(projectData, newData);
+    res.send(projectData)
+    }
+  res.send('POST received');
+};
+// POST weather
+const data = [];
+app.post('/weather', addweather); //was addAnimal and was /animal
+function addweather (req,res){
+    data.push(req.body);
+}*/

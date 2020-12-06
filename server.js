@@ -34,7 +34,6 @@ app.post('/add', function (request, response) {
         dates: request.body.dates,
         userResponse: request.body.userResponse,
     };
-
-    /*projectData.send(newEntry);*/
+    response.send(projectData);
     projectData = newEntry;
 });

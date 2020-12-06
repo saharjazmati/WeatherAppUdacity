@@ -9,20 +9,19 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 // Make a GETrequest from a web APIs,
 let newTemp ="";
-const getFunction = async (baseURL, zip, Key)=>{ 
+const getFunction = async (baseURL, zip, Key)=>{
   const res = await fetch(baseURL + zip + ',us&appid=' + Key);
     console.log(res)
     try {
-      const weatherJournalData = await res.json(); 
+      const weatherJournalData = await res.json();
       newTemp = weatherJournalData.main.temp;
-      console.log(newTemp);
-      return newTemp; 
+      return newTemp;
     }  catch(error) {
-      console.log("error", error);   
+      console.log("error", error);
     }
   }
 
-function performAction(e){ 
+function performAction(e){
     const feeling =  document.getElementById('feelings').value;
     console.log(baseURL+document.getElementById('zip').value+',us&appid='+apiKey)
     getFunction(baseURL,document.getElementById('zip').value,apiKey)
@@ -56,7 +55,7 @@ const updateUI = async () => {
   try{
     const allData = await request.json();
     console.log(allData);
-    document.getElementById('date').innerHTML = allData.dates; 
+    document.getElementById('date').innerHTML = allData.dates;
     document.getElementById('temp').innerHTML = `Temperature: ${(allData.temperature)} degrees`;
     document.getElementById('content').innerHTML = `My feeling is ${allData.userResponse}`;
   }catch(error){

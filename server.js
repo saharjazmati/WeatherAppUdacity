@@ -34,6 +34,6 @@ app.post('/add', function (request, response) {
         dates: request.body.dates,
         userResponse: request.body.userResponse,
     };
-    response.send("Weather saved");
+    response.send({msg:"Weather saved"});
     projectData = newEntry;
 });
